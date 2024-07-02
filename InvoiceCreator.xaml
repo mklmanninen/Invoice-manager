@@ -1,0 +1,102 @@
+﻿<Window x:Class="htyö_GUI.InvoiceCreator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:htyö_GUI"
+        mc:Ignorable="d"
+        Title="InvoiceCreator" Height="450" Width="800">
+    <Grid Background="{StaticResource BackgroundColour}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="160*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="{StaticResource SideBarColour}" Grid.RowSpan="10"/>
+
+        <!--Buttons-->
+
+        <ContentControl x:Name="CC" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="10" Margin="4,0,0,0" FontFamily="Segoe UI">
+            <DatePicker x:Name="ExpDatePicker" HorizontalAlignment="Left" Margin="166,159,0,0" VerticalAlignment="Top" Width="170"/>
+        </ContentControl>
+
+
+
+        <!--Button on the bottom-->
+        <Button x:Name="finish_btn" Content="Finish" VerticalAlignment="Top" Grid.Column="5" Grid.Row="9" Margin="42,194,42,0" Click="finish_btn_Click" Height="24"/>
+
+        <!-- Left side texts -->
+        <TextBlock x:Name="Heading" Grid.Column="1" Grid.Row="1" FontWeight="Bold" Foreground="{StaticResource TextBlockColour}"> Billing Address</TextBlock>
+        <TextBlock x:Name="Nimi" Grid.Column="1" Grid.Row="2" Foreground="{StaticResource TextBlockColour}"> Name</TextBlock>
+        <TextBlock x:Name="Katuos" Grid.Column="1" Grid.Row="3" Foreground="{StaticResource TextBlockColour}"> Address</TextBlock>
+        <TextBlock x:Name="PostNum" Grid.Column="1" Grid.Row="4" Foreground="{StaticResource TextBlockColour}"> Zip code</TextBlock>
+        <TextBlock x:Name="Kaupunki" Grid.Column="1" Grid.Row="5" Foreground="{StaticResource TextBlockColour}"> City</TextBlock>
+        <TextBlock x:Name="Maa" Grid.Column="1" Grid.Row="6" Foreground="{StaticResource TextBlockColour}"> Country</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="7" Foreground="{StaticResource TextBlockColour}"> Expiration Date</TextBlock>
+
+        <!-- Right side texts -->
+        <TextBlock x:Name="Heading2" Grid.Column="4" Grid.Row="1" FontWeight="Bold" Foreground="{StaticResource TextBlockColour}"> Biller</TextBlock>
+        <TextBlock x:Name="Nimi2" Grid.Column="4" Grid.Row="2" Foreground="{StaticResource TextBlockColour}"> Name</TextBlock>
+        <TextBlock x:Name="Katuos2" Grid.Column="4" Grid.Row="3" Foreground="{StaticResource TextBlockColour}"> Address</TextBlock>
+        <TextBlock x:Name="PostNum2" Grid.Column="4" Grid.Row="4" Foreground="{StaticResource TextBlockColour}"> Zip Code</TextBlock>
+        <TextBlock x:Name="Kaupunki2" Grid.Column="4" Grid.Row="5" Foreground="{StaticResource TextBlockColour}"> City</TextBlock>
+        <TextBlock x:Name="Maa2" Grid.Column="4" Grid.Row="6" Foreground="{StaticResource TextBlockColour}"> Country</TextBlock>
+
+        <!-- ComboBoxes -->
+        <ComboBox x:Name="CountryBox1" SelectedIndex="0" Grid.Column="2" Grid.Row="6">
+            <ComboBoxItem Content="FI Suomi"></ComboBoxItem>
+            <ComboBoxItem Content="SE Sweden"></ComboBoxItem>
+            <ComboBoxItem Content="NO Norway"></ComboBoxItem>
+            <ComboBoxItem Content="EE Estonia"></ComboBoxItem>
+            <ComboBoxItem Content="LV Latvia"></ComboBoxItem>
+            <ComboBoxItem Content="LT Lithuania"></ComboBoxItem>
+        </ComboBox>
+
+
+
+
+        <!--TextBoxes (LEFT) -->
+        <TextBox x:Name="tbNameCustomer" Grid.Column="2" Grid.Row="2" FontSize="12"></TextBox>
+        <TextBox x:Name="tbAddressCustomer" Grid.Column="2" Grid.Row="3" FontSize="12"></TextBox>
+        <TextBox x:Name="tbZipCodeCustomer" Grid.Column="2" Grid.Row="4" FontSize="12"></TextBox>
+        <TextBox x:Name="tbCityCustomer" Grid.Column="2" Grid.Row="5" FontSize="12"></TextBox>
+
+        <!--TextBoxes (RIGHT) -->
+        <TextBox x:Name="tbNameBusiness" Grid.Column="5" Grid.Row="2" FontSize="12" IsReadOnly="True">Rakennus Oy</TextBox>
+        <TextBox x:Name="tbAddressBusiness" Grid.Column="5" Grid.Row="3" FontSize="12" IsReadOnly="True">Business Address 1</TextBox>
+        <TextBox x:Name="tbZipcodeBusiness" Grid.Column="5" Grid.Row="4" FontSize="12" IsReadOnly="True">80100</TextBox>
+        <TextBox x:Name="tbCityBusiness" Grid.Column="5" Grid.Row="5" FontSize="12" IsReadOnly="True">Joensuu</TextBox>
+        <TextBox x:Name="tbCountryBusiness" Grid.Column="5" Grid.Row="6" FontSize="12" IsReadOnly="True">FI Suomi</TextBox>
+
+        <!--Invoice items-->
+        <ListView x:Name="InvoiceItems" Grid.Column="1" Grid.Row="9" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+
+    </Grid>
+</Window>

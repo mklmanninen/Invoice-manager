@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="htyö_GUI.Controls.ProductsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:htyö_GUI.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#222222">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="169*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="75*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="643*"/>
+
+
+        </Grid.ColumnDefinitions>
+
+
+        <!--Eka groupbox-->
+        <GroupBox Header="Valitse pizzeria" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Width="188" Canvas.Left="441" Canvas.Top="-6" Margin="0,13,458,0" Grid.Column="1" Grid.RowSpan="2">
+            <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Width="360">
+                <ComboBoxItem Content="Pizza Joensuu"/>
+                <ComboBoxItem Content="Kebab Kalajoki"/>
+            </ComboBox>
+        </GroupBox>
+
+        <!--Täytteet - Tässä GroupBox, jonka sisällä StackPanel -->
+        <GroupBox Header="Valitse täytteet" Grid.Row="1" HorizontalAlignment="Left" Canvas.Top="49" VerticalAlignment="Top" Height="102" Width="310" Canvas.Left="441" Margin="40,57,0,0" Grid.Column="1">
+            <StackPanel Height="175">
+                <CheckBox x:Name="Kinkku" Content="Kinkku"/>
+                <CheckBox x:Name="Ananas" Content="Ananas"/>
+                <CheckBox x:Name="Sipuli" Content="Sipuli"/>
+                <CheckBox x:Name="Jalapeno" Content="Jalapeno"/>
+                <CheckBox x:Name="Tonnikala" Content="Tonnikala"/>
+                <CheckBox x:Name="Pepperoni" Content="Pepperoni"/>
+                <CheckBox x:Name="Salami" Content="Salami"/>
+                <CheckBox x:Name="Herkkusieni" Content="Herkkusieni"/>
+                <CheckBox x:Name="Katkarapu" Content="Katkarapu"/>
+                <CheckBox x:Name="Sinihomejuusto" Content="Sinihomejuuusto"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!--Maksutapa, laitetaan stackpanelin orientaatioksi horizontal, jotta radiobuttonit ovat vierekkäin-->
+        <GroupBox Header="Maksutapa" HorizontalAlignment="Left" Canvas.Top="224" VerticalAlignment="Top" Height="52" Width="270" Canvas.Left="441" Margin="376,84,0,0" Grid.Column="1" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="375">
+                <RadioButton Content="Käteinen" Width="70"/>
+                <RadioButton Content="Tilisiirto" Width="65"/>
+                <RadioButton Content="Visa" Width="65"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!--Toimitustapa, tässä sama logiikka, kuin edellisessä-->
+        <GroupBox Header="Toimitustapa" HorizontalAlignment="Right" Canvas.Top="284" VerticalAlignment="Top" Height="60" Width="376" Canvas.Left="441" Margin="0,-4,24,0" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="375" Margin="1,0,0,0">
+                <RadioButton Content="Nouto" Width="70"/>
+                <RadioButton Content="Kotiinkuljetus"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!--Textbox, johon voi kirjoittaa monirivisen tekstin. Wrapping on päällä-->
+        <GroupBox Header="Lisätietoja" Width="224" Height="102" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Canvas.Top="349" Canvas.Left="440" Margin="376,0,0,38" Grid.Column="1">
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Width="375" HorizontalAlignment="Left">
+                Jos
+            </TextBox>
+        </GroupBox>
+
+        <!--Button-->
+
+    </Grid>
+</UserControl>
